@@ -8,10 +8,9 @@
 {
         <table class="table">
                 <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th></th>
-                        <th>Price</th>
+                        <th>Produits</th>
+                        <th>Quantité</th>
+                        <th>Prix</th>
                         <th>Total</th>
                 </tr>
                 @foreach (var item in Model.CartItems)
@@ -33,8 +32,8 @@
                 </tr>
                 <tr>
                         <td class="text-right" colspan="4">
-                                <a class="btn btn-danger" asp-action="Clear">Clear Cart</a>
-                                <a class="btn btn-primary" href="#">Checkout</a>
+                                <a class="btn btn-danger" asp-action="Clear">Vider Panier</a>
+                                <a class="btn btn-primary" asp-controller="Products" asp-action="Index">Passer commande</a>
                         </td>
                 </tr>
         </table>
@@ -43,6 +42,6 @@
 }
 else
 {
-        <h3 class="display-4 text-center">Your cart is empty.</h3>
+        <h3 class="display-4 text-center">Panier vide</h3>
 }
 

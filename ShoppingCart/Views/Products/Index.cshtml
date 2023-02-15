@@ -4,13 +4,13 @@
         ViewData["Title"] = "Products";
 }
 
-<h1>Products</h1>
+<h1>Produits</h1>
 
 <div class="row">
         @foreach (var item in Model)
         {
                 <div class="col-4">
-                        <img src="/media/products/@item.Image" class="img-fluid" alt="" />
+                        <img class="rounded" style="width:100%; height:auto" src="/media/products/@item.Image" class="img-fluid" alt="" />
                         <h4>@item.Name</h4>
                         <div>
                                 @Html.Raw(item.Description)
@@ -19,7 +19,7 @@
                                 @item.Price.ToString("C2")
                         </p>
                         <p>
-                                <a class="btn btn-primary" asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id">Add to cart</a>
+                                <a class="btn btn-secondary" asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id">Ajouter panier</a>
                         </p>
                 </div>
         }

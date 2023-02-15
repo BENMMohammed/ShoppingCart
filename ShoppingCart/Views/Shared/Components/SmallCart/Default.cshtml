@@ -4,12 +4,12 @@
 {
         <p>Items in cart: <span class="badge badge-primary">@Model.NumberOfItems</span></p>
         <p>Total: <b>@Model.TotalAmount.ToString("C2")</b></p>
-        <a class="btn btn-primary" asp-controller="Cart" asp-action="Index">View Cart</a>
-        <a class="btn btn-danger" asp-controller="Cart" asp-action="Clear">Clear Cart</a>
+        <a class="btn-group" asp-controller="Cart" asp-action="Index">Voir panier</a>
+        <a class="btn-group" asp-controller="Cart" asp-action="Clear">Vider panier</a>
 }
 else
 {
-        <p class="lead m-0">Your cart is empty</p>
+        <p class="p-3 mb-2 bg-secondary text-white">Panier vide</p>
 }
 
 

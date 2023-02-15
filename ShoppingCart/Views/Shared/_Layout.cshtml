@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿    <!DOCTYPE html>
 <html lang="en">
 <head>
         <meta charset="utf-8" />
@@ -10,42 +10,41 @@
 </head>
 <body>
         <header>
-                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
                         <div class="container-fluid">
-                                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ShoppingCart</a>
+                                <a class="navbar-brand" asp-area="" asp-controller="Products" asp-action="Index">Apple Store</a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                                         aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                                        <ul class="navbar-nav flex-grow-1">
-                                                <li class="nav-item">
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                                                </li>
+                                        <ul class="navbar-nav flex-grow-1">                                                
                                                 @if (User.Identity?.IsAuthenticated ?? false)
                                                 {
                                                         <li class="nav-item">
-                                                                <a class="btn btn-primary" asp-area="Admin" asp-controller="Products" asp-action="Index">Products</a>
+                                                                <a class="btn btn-secondary" asp-area="Admin" asp-controller="Products" asp-action="Index">Ajouter Produit</a>
                                                         </li>
                                                         <li class="nav-item">
-                                                                <a class="btn btn-danger" asp-controller="Account" asp-action="Logout">Hi, @User.Identity.Name, Log out</a>
+                                                                <a class="btn btn-secondary" asp-controller="Account" asp-action="Logout">Deconnexion</a>
                                                         </li>
-                                                        @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
-                                                        {
-                                                                <li class="nav-item">
-                                                                        <a class="btn btn-primary" asp-area="Admin" asp-controller="Products" asp-action="Index">Products</a>
-                                                                </li>
-                                                        }
+                                                        <li class="nav-item">
+                                                                <p><strong>Bienvenue, @User.Identity.Name</strong></p>
+                                                        </li>
                                                 }
                                                 else
                                                 {
-                                                        <li class="nav-item">
-                                                                <a class="btn btn-success" asp-controller="Account" asp-action="Login">Log in</a>
-                                                        </li>
+                                                    <li class="nav-item">
+                                                        <a class="btn btn-secondary" asp-controller="Account" asp-action="Login">Connexion</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="btn btn-secondary" asp-controller="Account" asp-action="Create">Inscription</a>
+                                                    </li>
                                                 }
+                                        </ul>
+                                        <ul class="navbar-nav">
+                                                <li class="nav-item">
+                                                    <a class="btn btn-secondary" asp-controller="Cart" asp-action="Index">Panier</a>
+                                                </li>
                                         </ul>
                                 </div>
                         </div>
@@ -56,10 +55,6 @@
                         <div class="row">
                                 <div class="col-3">
                                         <vc:categories />
-
-                                        <div class="bg-success mt-3 p-3 text-white">
-                                                <vc:small-cart />
-                                        </div>
                                 </div>
                                 <div class="col">
                                         <partial name="_NotificationPartial" />
@@ -69,11 +64,7 @@
                 </main>
         </div>
 
-        <footer class="border-top footer text-muted">
-                <div class="container">
-                        &copy; 2022 - ShoppingCart - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                </div>
-        </footer>
+        
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>

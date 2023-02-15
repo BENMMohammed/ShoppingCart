@@ -13,5 +13,6 @@ namespace ShoppingCart.Models
                 public string Email { get; set; }
                 [DataType(DataType.Password), Required, MinLength(4, ErrorMessage = "Minimum length is 4")]
                 public string Password { get; set; }
-        }
+                public ICollection<LignePanier>? LignePanier { get; set; }
+    }
 }

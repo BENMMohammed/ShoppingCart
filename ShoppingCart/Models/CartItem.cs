@@ -24,6 +24,7 @@
                         Quantity = 1;
                         Image = product.Image;
                 }
+                public int User { get; set; }
 
-        }
+    }
 }

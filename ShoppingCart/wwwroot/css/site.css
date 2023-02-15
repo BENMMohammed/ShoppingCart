@@ -15,4 +15,9 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-image: url("/media/backgound.jpg");
+  background-size: cover;
+}
+navbar {
+    background-color: darkslategrey;
 }
